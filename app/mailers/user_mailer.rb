@@ -13,4 +13,16 @@ class UserMailer < ActionMailer::Base
 
     mail to: @user.email, subject: "Sign Up Confirmation"
   end
+
+  def comment_confirmation(comment)
+    @greeting = "Howdy"
+    @comment = comment
+
+    mail cc: "admin@airbnb.com"
+    mail to: @comment.owner.email, subject: "Comment Confirmation"
+  end
 end
+
+
+
+

@@ -1,6 +1,7 @@
 class Owner < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_many :comments
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -11,3 +12,6 @@ class Owner < ActiveRecord::Base
       UserMailer.deliver_signup_confirmation(self).deliver
     end
 end
+
+
+
