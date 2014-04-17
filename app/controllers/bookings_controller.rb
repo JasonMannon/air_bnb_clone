@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @listing = Listing.find_by(:owner_id => @booking.owner_id)
+    @listing = Listing.find(@booking.listing_id)
     if @booking.save
       flash[:notice] = "Your booking has been saved"
       redirect_to owner_listing_path(@booking.owner_id, @listing.id)

@@ -1,10 +1,18 @@
 
-<h1>Hello, my name is <%= @owner.username %></h1>
-<%= if current_owner.owner == true %>
-<%= link_to "See my listings", "/owners/#{@owner.id}/listings", :class => "makebutton" %>
+
+<center><h1><%= @owner.username %>,s account</h1></center>
+<% if current_owner.owner == true %>
+<%= link_to "See my listings", "/owners/#{@owner.id}/listings" %>
 <% end %>
 
 
-<%= if current_owner.owner == false %>
-  <%= @owner.booking %>
-
+<% if current_owner.owner == false %>
+  <h1>Reservations:</h2>
+    <h2><%= @listing.title %></h2>
+    <ul>
+      <li>Start date:</li>
+         <ul>
+           <li><%= @booking.start_time %></li>
+          </ul>
+    </ul>
+<% end %>

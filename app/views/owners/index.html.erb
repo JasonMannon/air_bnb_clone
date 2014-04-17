@@ -5,7 +5,7 @@
     <div class="listings">
       <h4> <%= link_to listing.title, "owners/#{listing.owner.id}/listings/#{listing.id}" %></h4>
       <% if listing.photos.first %>
-        <%= image_tag listing.photos.first.photo.url %>
+        <%= image_tag listing.photos.first.photo.url(:medium) %>
       <% else %>
         <div class="notthere">
           <h3>Photo is not available</h3>
