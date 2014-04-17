@@ -1,21 +1,27 @@
-<h1>Here are all of your listings</h1>
+<h3>Below are all of <%= @owner.email %>'s listings:</h3>
 <div class="listing_list">
   <ul>
 
-<h3>Below are my listings:</h3>
-<% @owner.listings.each do |listing| %>
-  <%= link_to listing.title, "/owners/#{listing.owner.id}/listings/#{listing.id}" %><br />
-  <% if listing.photos.first %>
-    <a href="/owners/#{listing.owner.id}/listings/#{listing.id}"><% image_tag listing.photos.first.photo.url(:medium) %></a><br />
-  <% else %>
-    <div class="notthere">
-      <h3>Photo is not available</h3>
-    </div>
-  <% end %>
-  <%= listing.description.slice(0..9) %><br />
-<% end %>
 
-<% if current_owner %>
+    <div class="listing">
+    <% @owner.listings.each do |listing| %>
+      <%= link_to listing.title, owner_listing_path(listing.owner, listing) %><br />
+      <% if listing.photos.first %>
+        <a href="/owners/#{listing.owner.id}/listings/#{listing.id}">
+        <%= image_tag listing.photos.first.photo.url(:medium) %></a>
+        <br />
+      <% else %>
+        <div class="notthere">
+          <h3>Photo is not available</h3>
+        </div>
+      <% end %>
+      Short Description: <%= listing.description.slice(0..25) %><br />
+    <% end %>
+    </div>
+  </ul>
+
+
+<% if current_owner == @owner && current_owner.owner == true %>
   <h2>Create a new listing</h2>
   <button><%= link_to "New Listing", new_listing_path, id: "new_link", remote: true %></button>
 <% end %>

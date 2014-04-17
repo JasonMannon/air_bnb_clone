@@ -1,0 +1,7 @@
+$('#update_listing').remove();
+$('#new_link').show();
+$('#current_listing').hide();
+$('#current_listing').prepend('<h1><%= @listing.title %></h1>
+                               <h1><%= @listing.description %></h1>
+                               <h1><%= @listing.loctation %></h1>
+                               <h1><%= @listing.price %></h1>' )
