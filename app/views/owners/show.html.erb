@@ -1,5 +1,10 @@
+
 <h1>Hello, my name is <%= @owner.username %></h1>
-
+<%= if current_owner.owner == true %>
 <%= link_to "See my listings", "/owners/#{@owner.id}/listings", :class => "makebutton" %>
+<% end %>
 
+
+<%= if current_owner.owner == false %>
+  <%= @owner.booking %>
 

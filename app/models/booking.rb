@@ -1,7 +1,6 @@
 class Booking < ActiveRecord::Base
+  belongs_to :listing
+  belongs_to :owner
 
-  def start_time
-    event_start_time
-  end
 
 end

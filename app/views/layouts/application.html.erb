@@ -51,7 +51,10 @@
     </div><!-- /.container-fluid -->
   </nav>
 
+
   <div class="container">
+    <%= bootstrap_flash %>
+    <%#= flash[:notice] %>
 <%= yield %>
   </div>
 </body>

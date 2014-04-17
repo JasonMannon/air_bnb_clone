@@ -5,6 +5,7 @@ Airrnb::Application.routes.draw do
       resources :photos
     end
   end
+
   resources :listings
   resources :photos
   resources :comments

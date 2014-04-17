@@ -5,6 +5,11 @@
   <h1> <%= @listing.location %></h1>
 </div>
 
+<div class="float-calendar">
+  <p>Enter your date!!</p>
+  <%= render '/bookings/form' %>
+</div>
+
 <% if @listing.photos.first %>
   <% @listing.photos.all.each do |p| %>
     <%= image_tag p.photo.url(:medium) %>
@@ -23,9 +28,7 @@
 
 <%= link_to "Back", "/owners/#{@listing.owner.id}/listings" %>
 
-<p>Enter your date!!</p>
-
-<%= calendar @bookings do |booking| %>
+<%= calendar @bookings, end_date: lambda{ |date| "hello from #{date}" }, empty_date: lambda{ |date| "available" } do |booking| %>
   <div><%= link_to booking.title, booking %></div>
 <% end %>
 
