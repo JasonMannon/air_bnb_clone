@@ -7,5 +7,7 @@
   </ul>
 </div>
 
-<%= link_to "New Photo", "/owners/#{current_owner.id}/listings/#{@listing.id}/photos/new", id: "new_link", remote: true %>
+<%= link_to "New Photo", "/owners/#{current_owner.id}/listings/#{@listing.id}/photos/new", id: "new_link", remote: true %><br />
+
+<%= link_to "Back", "/owners/#{@listing.owner.id}/listings/#{@listing.id}" %>
 

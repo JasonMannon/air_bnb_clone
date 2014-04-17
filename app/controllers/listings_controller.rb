@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
-    @owner = Owner.find(current_owner.id)
+    @owner = Owner.find(params[:owner_id])
   end
 
   def show

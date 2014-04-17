@@ -2,12 +2,17 @@
 <div class="listing_list">
   <ul>
 
+<h3>Below are my listings:</h3>
 <% @owner.listings.each do |listing| %>
-  <% if listing.photos.first != nil %><%= image_tag listing.photos.first.photo.url(:thumb) %><% end %>
-  <%= link_to listing.title, "/owners/#{listing.owner.id}/listings/#{listing.id}" %> <br />
-  <%= listing.description %> <br />
-  $<%= listing.price %> <br />
-  <%= listing.location %>
+  <%= link_to listing.title, "/owners/#{listing.owner.id}/listings/#{listing.id}" %><br />
+  <% if listing.photos.first %>
+    <a href="/owners/#{listing.owner.id}/listings/#{listing.id}"><% image_tag listing.photos.first.photo.url(:medium) %></a><br />
+  <% else %>
+    <div class="notthere">
+      <h3>Photo is not available</h3>
+    </div>
+  <% end %>
+  <%= listing.description.slice(0..9) %><br />
 <% end %>
 
 <% if current_owner %>

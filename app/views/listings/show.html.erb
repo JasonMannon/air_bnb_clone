@@ -2,9 +2,19 @@
 <h1> $<%= @listing.price %></h1>
 <h1> <%= @listing.location %></h1>
 
-<% @listing.photos.all.each do |p| %>
-  <%= image_tag p.photo.url(:medium) %>
+<% if @listing.photos.first %>
+  <% @listing.photos.all.each do |p| %>
+    <%= image_tag p.photo.url(:medium) %>
   <% end %><br>
-<% if current_owner %>
-<%= link_to "Add Photos", "/owners/#{current_owner.id}/listings/#{@listing.id}/photos/new" %>
+<% else %>
+  <div class="notthere">
+    <h3>Photo is not available</h3>
+  </div>
 <% end %>
+<% if current_owner %>
+<%= link_to "Add Photos", "/owners/#{@listing.owner.id}/listings/#{@listing.id}/photos/new" %>
+<% end %><br />
+
+<%= link_to "Back", "/owners/#{@listing.owner.id}/listings" %>
+
+

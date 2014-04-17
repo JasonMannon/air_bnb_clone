@@ -9,7 +9,7 @@
 <body>
   <% if owner_signed_in? %>
   Logged in as <strong><%= link_to current_owner.email, "/owners/#{current_owner.id}" %></strong>.
-  <%= link_to "New Listing", "/owners/#{current_owner.id}/listings" %> |
+  <%= link_to "My Lisitings", "/owners/#{current_owner.id}/listings" %> |
   <%= link_to 'Edit profile', edit_owner_registration_path %> |
   <%= link_to "Logout", destroy_owner_session_path, method: :delete %>
 <% else %>

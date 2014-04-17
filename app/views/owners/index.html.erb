@@ -1,8 +1,18 @@
 <h1>Rent your dream apartment</h1>
 
-<% Listing.all.each do |listing| %>
-  <div class="listings">
- <h4> <%= link_to listing.title, "owners/#{listing.owner.id}/listings/#{listing.id}" %></h4>
-  <%= image_tag listing.photos.first.photo.url %>
-  </div>
+<% if Listing.all.first %>
+  <% Listing.all.each do |listing| %>
+    <div class="listings">
+      <h4> <%= link_to listing.title, "owners/#{listing.owner.id}/listings/#{listing.id}" %></h4>
+      <% if listing.photos.first %>
+        <%= image_tag listing.photos.first.photo.url %>
+      <% else %>
+        <div class="notthere">
+          <h3>Photo is not available</h3>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <% else %>
+  <h3>There is no current listing available </h3>
 <% end %>
