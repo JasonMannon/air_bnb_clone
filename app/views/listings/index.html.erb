@@ -1,0 +1,16 @@
+<h1>Here are all of your listings</h1>
+<div class="listing_list">
+  <ul>
+
+<% @owner.listings.each do |listing| %>
+  <% if listing.photos.first != nil %><%= image_tag listing.photos.first.photo.url(:thumb) %><% end %>
+  <%= link_to listing.title, "/owners/#{listing.owner.id}/listings/#{listing.id}" %> <br />
+  <%= listing.description %> <br />
+  $<%= listing.price %> <br />
+  <%= listing.location %>
+<% end %>
+
+<% if current_owner %>
+  <h2>Create a new listing</h2>
+  <button><%= link_to "New Listing", new_listing_path, id: "new_link", remote: true %></button>
+<% end %>

@@ -1,0 +1,8 @@
+<h1>Rent your dream apartment</h1>
+
+<% Listing.all.each do |listing| %>
+  <div class="listings">
+ <h4> <%= link_to listing.title, "owners/#{listing.owner.id}/listings/#{listing.id}" %></h4>
+  <%= image_tag listing.photos.first.photo.url %>
+  </div>
+<% end %>

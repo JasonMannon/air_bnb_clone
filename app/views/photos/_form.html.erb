@@ -1,0 +1,6 @@
+<%= form_for @photo, :html => { :multipart => true }, remote: true, :authenticity_token => true do |f| %>
+  <%= f.hidden_field :listing_id, :value => @listing.id %>
+  <%= f.label "Add Photo" %><br>
+  <%= f.file_field :photo %><br>
+  <%= f.submit "Add Photo" %>
+  <% end %>
