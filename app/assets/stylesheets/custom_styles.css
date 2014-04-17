@@ -13,3 +13,9 @@
   border-radius: 20px;
   text-decoration: none;
 }
+
+
+.logged_in {
+  position: absolute;
+  top: 15px;
+}

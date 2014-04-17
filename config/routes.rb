@@ -8,6 +8,7 @@ Airrnb::Application.routes.draw do
   resources :listings
   resources :photos
   resources :comments
+  resources :bookings
   root to: "owners#index"
   get 'contact', to: 'owners#contact', as: 'contact'
 end

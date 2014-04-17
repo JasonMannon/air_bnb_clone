@@ -10,9 +10,12 @@ gem 'turbolinks'
 gem 'devise'
 gem 'capybara'
 
+gem "simple_calendar", "~> 0.1.10"
 gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'paperclip'
+
+
 
 
 group :development do

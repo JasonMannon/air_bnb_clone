@@ -23,4 +23,10 @@
 
 <%= link_to "Back", "/owners/#{@listing.owner.id}/listings" %>
 
+<p>Enter your date!!</p>
+
+<%= calendar @bookings do |booking| %>
+  <div><%= link_to booking.title, booking %></div>
+<% end %>
+
 
