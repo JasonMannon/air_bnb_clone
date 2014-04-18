@@ -1,9 +1,5 @@
 == Air BnB Clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
 
 * Can create and sign into an account.  On create you can pick wether or not you are a renter or owner
 
